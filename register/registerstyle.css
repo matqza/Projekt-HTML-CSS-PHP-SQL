@@ -10,12 +10,12 @@ body{
 .form{
     display: flex;
     flex-direction: column;
-    height: 650px;
+    height: 660px;
     width: 400px;
     border: 1px solid black;
     align-items: center;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: insert -5px -5px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
@@ -40,7 +40,7 @@ body{
 }
 #submit{
     padding: 10px 20px;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: inset -3px -3px rgba(0, 0, 0, 0.5);
@@ -57,8 +57,6 @@ body{
 ::placeholder{
     color: white;
 }
-#xxx{
-    color:red;
-}
+
 
 
