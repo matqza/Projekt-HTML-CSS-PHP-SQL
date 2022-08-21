@@ -4,6 +4,7 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  color: red;
    /*login Form*/
 }
 .form{
@@ -55,6 +56,9 @@ body{
 }
 ::placeholder{
     color: white;
+}
+#xxx{
+    color:red;
 }
 
 
