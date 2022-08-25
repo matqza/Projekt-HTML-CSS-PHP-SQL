@@ -1,19 +1,23 @@
 <?php
     if(isset($_POST['submit']))
     {
-        $pass = $_POST['pass'];
-        $pass2 = $_POST['pass2'];
+        //connection
+        $conn = mysqli_connect("localhost", "root", "", "users");
+
+
         $name  = $_POST['name'];      
         $forname = $_POST['forname'];
         $username = $_POST['username'];
         $email = $_POST['email'];
-
+        $pass = $_POST['pass'];
+        $pass2 = $_POST['pass2'];
+        $usertype = "Usertype";
 
         if(empty($pass) || empty($pass2) || empty($name) || empty($forname) || empty($username) || empty($email))
         {
             $error_msg['error']= '<span style="color:#AFA;">Please complete all fields</span>';
         }
-        else if(strlen($pass) < 5 || strlen($pass2) < 5 || strlen($name) < 5 || strlen($forname) < 5 || strlen($username) < 5 || strlen($email) < 5 )
+        else if(strlen($pass) < 5 || strlen($pass2) < 5 || strlen($name) < 5 || strlen($forname) < 2 || strlen($username) < 5 || strlen($email) < 5 )
         {
             $error_msg['error2']='<span style="color:#AFA;">fields had to be over 5</span>';
         }
@@ -21,7 +25,17 @@
         {
             $error_msg['pass']= '<span style="color:#AFA;">passwords are different from each other</span>';
         }
+        else{
+        //hash password
+       $hash_pass = (password_hash($pass, PASSWORD_DEFAULT));
+        //add to query
+        $sql = "INSERT INTO userstable(Name, Forname, Username, Mail, Password)
+        VALUES('$name', '$forname', '$username', '$email', '$hash_pass')";            
+        mysqli_query($conn, $sql);
+        $conn->close();
+        header('location:http://localhost/Project/Projekt-HTML-CSS-PHP-SQL/');
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +51,7 @@
 
 
 
-        <form action="" enctype="multisport/form/data" class="form" method="post">
+        <form action="" enctype="multisport/form/data" class="form" method="POST">
   
         
         <h1>Registration</h1>
