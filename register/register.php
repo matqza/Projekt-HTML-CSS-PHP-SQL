@@ -27,10 +27,11 @@
         }
         else{
         //hash password
-       $hash_pass = (password_hash($pass, PASSWORD_DEFAULT));
+        //not work [login problem]
+        //$hash_pass = (password_hash($pass, PASSWORD_DEFAULT));
         //add to query
         $sql = "INSERT INTO userstable(Name, Forname, Username, Mail, Password)
-        VALUES('$name', '$forname', '$username', '$email', '$hash_pass')";            
+        VALUES('$name', '$forname', '$username', '$email', '$password')";            
         mysqli_query($conn, $sql);
         $conn->close();
         header('location:http://localhost/Project/Projekt-HTML-CSS-PHP-SQL/');
